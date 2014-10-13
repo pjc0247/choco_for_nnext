@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C1FB80DE-6402-4DB8-A32C-11CA7B362C83}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>choco_2</RootNamespace>
+    <ProjectName>choco</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)\;$(SolutionDir)\libcurl\include;C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\libcurl\;C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <XMLDocumentationFileName>$(IntDir)%(RelativeDir)</XMLDocumentationFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="card_server\packet.h" />
+    <ClInclude Include="card_server\packet_macro.h" />
+    <ClInclude Include="card_server\server.h" />
+    <ClInclude Include="choco\cluster\async_support.h" />
+    <ClInclude Include="choco\cluster\cluster.h" />
+    <ClInclude Include="choco\cluster\packet.h\packet.h" />
+    <ClInclude Include="choco\common.h" />
+    <ClInclude Include="choco\config\config.h" />
+    <ClInclude Include="choco\config\keys.h" />
+    <ClInclude Include="choco\config\parser.h" />
+    <ClInclude Include="choco\debug\invoke.h" />
+    <ClInclude Include="choco\error\errno.h" />
+    <ClInclude Include="choco\error\error.h" />
+    <ClInclude Include="choco\group\group.h" />
+    <ClInclude Include="choco\http\client.h" />
+    <ClInclude Include="choco\http\open_uri.h" />
+    <ClInclude Include="choco\intf\handler.h" />
+    <ClInclude Include="choco\intf\raw.h" />
+    <ClInclude Include="choco\intf\sendable.h" />
+    <ClInclude Include="choco\log\log.h" />
+    <ClInclude Include="choco\macro.h" />
+    <ClInclude Include="choco\mt\async.h" />
+    <ClInclude Include="choco\mt\microthread.h" />
+    <ClInclude Include="choco\mt\mt.h" />
+    <ClInclude Include="choco\mt\sleep.h" />
+    <ClInclude Include="choco\orm\orm.h" />
+    <ClInclude Include="choco\packet\packet.h" />
+    <ClInclude Include="choco\parallel\async.h" />
+    <ClInclude Include="choco\parallel\parallel.h" />
+    <ClInclude Include="choco\parallel\pool.h" />
+    <ClInclude Include="choco\parallel\schedule.h" />
+    <ClInclude Include="choco\server\server.h" />
+    <ClInclude Include="choco\server\worker\pool.h" />
+    <ClInclude Include="choco\server\worker\worker.h" />
+    <ClInclude Include="choco\session\conn.h" />
+    <ClInclude Include="choco\session\pool.h" />
+    <ClInclude Include="choco\util\uniqid.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="card_server\account.cpp" />
+    <ClCompile Include="card_server\server.cpp" />
+    <ClCompile Include="choco\choco.cpp" />
+    <ClCompile Include="choco\config\config.cpp" />
+    <ClCompile Include="choco\config\parser.cpp" />
+    <ClCompile Include="choco\debug\invoke.cpp" />
+    <ClCompile Include="choco\group\group.cpp" />
+    <ClCompile Include="choco\http\open_uri.cpp" />
+    <ClCompile Include="choco\intf\handler.cpp" />
+    <ClCompile Include="choco\intf\raw.cpp" />
+    <ClCompile Include="choco\intf\sendable.cpp" />
+    <ClCompile Include="choco\log\log.cpp" />
+    <ClCompile Include="choco\mt\microthread.cpp" />
+    <ClCompile Include="choco\mt\mt.cpp" />
+    <ClCompile Include="choco\mt\sleep.cpp" />
+    <ClCompile Include="choco\orm\async_support.cpp" />
+    <ClCompile Include="choco\orm\backend.cpp" />
+    <ClCompile Include="choco\orm\builder.cpp" />
+    <ClCompile Include="choco\orm\config.cpp" />
+    <ClCompile Include="choco\orm\interface.cpp" />
+    <ClCompile Include="choco\orm\orm.cpp" />
+    <ClCompile Include="choco\orm\pool.cpp" />
+    <ClCompile Include="choco\parallel\async.cpp" />
+    <ClCompile Include="choco\parallel\parallel.cpp" />
+    <ClCompile Include="choco\parallel\pool.cpp" />
+    <ClCompile Include="choco\parallel\schedule.cpp" />
+    <ClCompile Include="choco\server\server.cpp" />
+    <ClCompile Include="choco\server\worker\pool.cpp" />
+    <ClCompile Include="choco\server\worker\worker.cpp" />
+    <ClCompile Include="choco\session\conn.cpp" />
+    <ClCompile Include="choco\session\pool.cpp" />
+    <ClCompile Include="choco\util\uniqid.cpp" />
+    <ClCompile Include="choco_2.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="choco\choco.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

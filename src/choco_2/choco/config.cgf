@@ -1,0 +1,9 @@
+[server]
+
+[parallel]
+
+[db]
+host=localhost
+user=root
+password=asdf1234
+db_name=test

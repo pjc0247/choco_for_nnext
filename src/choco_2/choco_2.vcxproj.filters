@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\choco">
+      <UniqueIdentifier>{7fa3a448-e3b7-4f63-9ebc-8b033d952117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\mt">
+      <UniqueIdentifier>{75b851a3-be99-458d-91a1-b3b6e44a481f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\http">
+      <UniqueIdentifier>{a6ecac4f-090c-463d-9fb6-682ab9e69748}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\intf">
+      <UniqueIdentifier>{c8551e93-94a1-4cf4-aa7f-31b26dbf1a3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\session">
+      <UniqueIdentifier>{ef533683-a3a0-435e-bbc4-92b632b944cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\packet">
+      <UniqueIdentifier>{3b2d923b-f5c3-43e7-9412-9d2cb6bd555f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\server">
+      <UniqueIdentifier>{e8582eae-8e0a-4319-846d-269251d85356}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\server\worker">
+      <UniqueIdentifier>{16483334-d34a-49e1-ae04-a128d45907dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\group">
+      <UniqueIdentifier>{a48109b8-feba-4a6e-9c59-c0d09cd2c5fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\parallel">
+      <UniqueIdentifier>{15895061-81e0-4e14-a7f6-3406f4ecbf55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\log">
+      <UniqueIdentifier>{c18b23ae-1550-4652-a755-8d4f6aa915d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\orm">
+      <UniqueIdentifier>{e7b669d3-17f3-4ba9-a428-b23f9c97936d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\card_game">
+      <UniqueIdentifier>{9326403e-923d-42ff-9c50-a972b0f5cd7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\debug">
+      <UniqueIdentifier>{00278784-a62a-4dcf-87d9-551ad192a430}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\config">
+      <UniqueIdentifier>{8ade2a11-5f17-4fb5-8bfb-b9f52aca67d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\error">
+      <UniqueIdentifier>{9b68bc04-3123-445b-989f-27b5c7078090}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\util">
+      <UniqueIdentifier>{679f6fab-2df3-457f-bf61-73fd9a4ddd3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\choco\cluster">
+      <UniqueIdentifier>{10ee8c21-8e6c-4a5c-b1bd-452e5a3fc7ca}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\mt\microthread.h">
+      <Filter>소스 파일\choco\mt</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\mt\mt.h">
+      <Filter>소스 파일\choco\mt</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\intf\raw.h">
+      <Filter>소스 파일\choco\intf</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\session\conn.h">
+      <Filter>소스 파일\choco\session</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\common.h">
+      <Filter>소스 파일\choco</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\intf\handler.h">
+      <Filter>소스 파일\choco\intf</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\packet\packet.h">
+      <Filter>소스 파일\choco\packet</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\server\server.h">
+      <Filter>소스 파일\choco\server</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\session\pool.h">
+      <Filter>소스 파일\choco\session</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\server\worker\worker.h">
+      <Filter>소스 파일\choco\server\worker</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\server\worker\pool.h">
+      <Filter>소스 파일\choco\server\worker</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\mt\async.h">
+      <Filter>소스 파일\choco\mt</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\http\client.h">
+      <Filter>소스 파일\choco\http</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\http\open_uri.h">
+      <Filter>소스 파일\choco\http</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\group\group.h">
+      <Filter>소스 파일\choco\group</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\intf\sendable.h">
+      <Filter>소스 파일\choco\intf</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\parallel\pool.h">
+      <Filter>소스 파일\choco\parallel</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\parallel\async.h">
+      <Filter>소스 파일\choco\parallel</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\parallel\parallel.h">
+      <Filter>소스 파일\choco\parallel</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\macro.h">
+      <Filter>소스 파일\choco</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\log\log.h">
+      <Filter>소스 파일\choco\log</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\parallel\schedule.h">
+      <Filter>소스 파일\choco\parallel</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\orm\orm.h">
+      <Filter>소스 파일\choco\orm</Filter>
+    </ClInclude>
+    <ClInclude Include="card_server\server.h">
+      <Filter>소스 파일\card_game</Filter>
+    </ClInclude>
+    <ClInclude Include="card_server\packet.h">
+      <Filter>소스 파일\card_game</Filter>
+    </ClInclude>
+    <ClInclude Include="card_server\packet_macro.h">
+      <Filter>소스 파일\card_game</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\debug\invoke.h">
+      <Filter>소스 파일\choco\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\mt\sleep.h">
+      <Filter>소스 파일\choco\mt</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\config\config.h">
+      <Filter>소스 파일\choco\config</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\config\parser.h">
+      <Filter>소스 파일\choco\config</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\config\keys.h">
+      <Filter>소스 파일\choco\config</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\error\error.h">
+      <Filter>소스 파일\choco\error</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\error\errno.h">
+      <Filter>소스 파일\choco\error</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\util\uniqid.h">
+      <Filter>소스 파일\choco\util</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\cluster\cluster.h">
+      <Filter>소스 파일\choco\cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\cluster\async_support.h">
+      <Filter>소스 파일\choco\cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\cluster\packet.h\packet.h">
+      <Filter>소스 파일\choco\cluster</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="choco_2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\mt\microthread.cpp">
+      <Filter>소스 파일\choco\mt</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\mt\mt.cpp">
+      <Filter>소스 파일\choco\mt</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\intf\raw.cpp">
+      <Filter>소스 파일\choco\intf</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\session\conn.cpp">
+      <Filter>소스 파일\choco\session</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\intf\handler.cpp">
+      <Filter>소스 파일\choco\intf</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\server\server.cpp">
+      <Filter>소스 파일\choco\server</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\choco.cpp">
+      <Filter>소스 파일\choco</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\session\pool.cpp">
+      <Filter>소스 파일\choco\session</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\server\worker\worker.cpp">
+      <Filter>소스 파일\choco\server\worker</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\server\worker\pool.cpp">
+      <Filter>소스 파일\choco\server\worker</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\http\open_uri.cpp">
+      <Filter>소스 파일\choco\http</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\group\group.cpp">
+      <Filter>소스 파일\choco\group</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\intf\sendable.cpp">
+      <Filter>소스 파일\choco\intf</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\parallel\pool.cpp">
+      <Filter>소스 파일\choco\parallel</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\parallel\async.cpp">
+      <Filter>소스 파일\choco\parallel</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\parallel\parallel.cpp">
+      <Filter>소스 파일\choco\parallel</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\log\log.cpp">
+      <Filter>소스 파일\choco\log</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\parallel\schedule.cpp">
+      <Filter>소스 파일\choco\parallel</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\orm\pool.cpp">
+      <Filter>소스 파일\choco\orm</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\orm\orm.cpp">
+      <Filter>소스 파일\choco\orm</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\orm\interface.cpp">
+      <Filter>소스 파일\choco\orm</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\orm\config.cpp">
+      <Filter>소스 파일\choco\orm</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\orm\builder.cpp">
+      <Filter>소스 파일\choco\orm</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\orm\backend.cpp">
+      <Filter>소스 파일\choco\orm</Filter>
+    </ClCompile>
+    <ClCompile Include="card_server\server.cpp">
+      <Filter>소스 파일\card_game</Filter>
+    </ClCompile>
+    <ClCompile Include="card_server\account.cpp">
+      <Filter>소스 파일\card_game</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\orm\async_support.cpp">
+      <Filter>소스 파일\choco\orm</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\debug\invoke.cpp">
+      <Filter>소스 파일\choco\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\mt\sleep.cpp">
+      <Filter>소스 파일\choco\mt</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\config\config.cpp">
+      <Filter>소스 파일\choco\config</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\config\parser.cpp">
+      <Filter>소스 파일\choco\config</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\util\uniqid.cpp">
+      <Filter>소스 파일\choco\util</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="choco\choco.h">
+      <Filter>소스 파일\choco</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,29 @@
+#server config
+
+[server]
+host = localhost
+port = 9916
+backlog_size = 1024
+pool_size = 8
+cluster_id = 0
+
+[cluster]
+1 = localhost:9910
+2 = localhost:9911
+
+[log]
+filter = 0
+
+[session]
+inbuf_size = 1024
+pool_size = 1024
+
+[parallel]
+scheduler_interval = 500
+pool_size = 10
+
+[mysql]
+host=localhost
+user=root
+password=asdf1234
+db_name=test
