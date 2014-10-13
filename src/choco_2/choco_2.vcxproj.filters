@@ -67,9 +67,9 @@
     <Filter Include="소스 파일\choco\cluster">
       <UniqueIdentifier>{10ee8c21-8e6c-4a5c-b1bd-452e5a3fc7ca}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
+    <Filter Include="소스 파일\choco\lua">
+      <UniqueIdentifier>{14a8c831-833f-413f-ae5a-a158813550ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -186,7 +186,10 @@
     <ClInclude Include="choco\cluster\async_support.h">
       <Filter>소스 파일\choco\cluster</Filter>
     </ClInclude>
-    <ClInclude Include="choco\cluster\packet.h\packet.h">
+    <ClInclude Include="choco\lua\lua.h">
+      <Filter>소스 파일\choco\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\cluster\packet.h">
       <Filter>소스 파일\choco\cluster</Filter>
     </ClInclude>
   </ItemGroup>
@@ -292,6 +295,12 @@
     </ClCompile>
     <ClCompile Include="choco\util\uniqid.cpp">
       <Filter>소스 파일\choco\util</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\lua\lua.cpp">
+      <Filter>소스 파일\choco\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\lua\lua_support.cpp">
+      <Filter>소스 파일\choco\lua</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
