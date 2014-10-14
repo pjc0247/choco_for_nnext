@@ -11,9 +11,6 @@ card_server::card_server(){
 		*/
 
 	_ROUTE_ASYNC(card_server, login_request);
-	
-	log::info(
-		"routed\n");
 }
 card_server::~card_server(){
 }
