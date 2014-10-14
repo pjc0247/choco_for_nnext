@@ -73,7 +73,7 @@ namespace parallel{
 				}
 				
 				task.tick -=
-					GetTickCount64() - tick;
+					(int)(GetTickCount64() - tick);
 
 				if(erase_it)
 					it = tasks.erase(it);
