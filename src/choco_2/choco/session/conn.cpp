@@ -13,23 +13,27 @@ namespace session{
 
 	conn::conn() :
 		sock(0),
-		inbuf(nullptr), inbuf_ptr(0),
+		inbuf(nullptr), inbuf_ptr(0), inbuf_max(0),
 		state(0){
 	}
 	conn::~conn(){
 	}
 
-	error conn::open(){
+	error conn::open(
+		int inbuf_size){
+
 		sock = ::socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 		if(sock == INVALID_SOCKET)
 			return errorno::socket_error;
 		
-		inbuf = (char*)malloc(INBUF_MAX);
+		inbuf = (char*)malloc(inbuf_size);
 		if(inbuf == nullptr)
 			return errorno::no_memory;
 
 		memset(&evt,0, sizeof(event));
 		evt.conn = this;
+
+		inbuf_max = inbuf_size;
 		
 		return errorno::none;
 	}
@@ -95,7 +99,7 @@ namespace session{
 	int conn::recv_append(
 		int len){
 
-		if(INBUF_MAX <= inbuf_ptr+len)
+		if(inbuf_max <= inbuf_ptr+len)
 			return false;
 
 		DWORD flags = 0;

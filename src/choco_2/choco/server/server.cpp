@@ -86,10 +86,8 @@ namespace server{
 		/* init session_pool */
 		session_pool = new session::pool();
 		session_pool->initialize();
-		for(auto conn : *session_pool){
-			conn->open();
+		for(auto conn : *session_pool)
 			conn->accept(sock);
-		}
 
 		log::system(
 			"server - initialized / addr : %s:%d, backlog : %d\n",

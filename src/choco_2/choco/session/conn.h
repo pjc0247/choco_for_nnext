@@ -17,13 +17,11 @@ namespace session{
 		friend intf::handler;
 	
 	public:
-		static const int INBUF_MAX = 1024;
-
-	public:
 		conn();
 		virtual ~conn();
 
-		error open();
+		error open(
+			int inbuf_size);
 		void close();
 
 		error accept(
@@ -58,7 +56,7 @@ namespace session{
 		event evt;
 
 		char *inbuf;
-		int inbuf_ptr;
+		int inbuf_max, inbuf_ptr;
 
 		int state; /* for intf::handler */
 	};
