@@ -7,6 +7,8 @@
 #include <vector>
 #include <map>
 
+#include "choco/error/errno.h"
+
 namespace choco{
 namespace server{
 	class server;
@@ -16,7 +18,7 @@ namespace orm{
 
 	class query;
 
-	int initialize();
+	error initialize();
 	void cleanup();
 
 	/* ERROR API */

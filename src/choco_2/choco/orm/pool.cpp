@@ -17,7 +17,7 @@ namespace orm{
 	concurrent_queue<MYSQL*> conns;
 	_declspec(thread) MYSQL *local_db = nullptr;
 
-	int initialize_pool(){
+	error initialize_pool(){
 		string host = get_config("host");
 		string user = get_config("user");
 		string passwd = get_config("password");
@@ -52,7 +52,7 @@ namespace orm{
 			"orm::pool - initialized / size : %d\n",
 			pool_size);
 
-		return 0;
+		return errorno::none;
 	}
 	void cleanup_pool(){
 		while( !conns.empty() ){

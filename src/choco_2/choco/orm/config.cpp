@@ -27,7 +27,7 @@ namespace orm{
 		return configs[key];
 	}
 
-	int initialize_config(){
+	error initialize_config(){
 		configure_with_no_override("host", "127.0.0.1");
 		configure_with_no_override("port", "3306");
 		configure_with_no_override("pool_size", "10");
@@ -36,7 +36,7 @@ namespace orm{
 		log::system(
 			"orm::config - initialized\n");
 
-		return 0;
+		return errorno::none;
 	}
 
 };};

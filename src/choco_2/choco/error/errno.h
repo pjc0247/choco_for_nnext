@@ -29,4 +29,8 @@ namespace errorno{
 	enum mysql_error : error{
 		connection_failed = 401
 	};
+
+	enum http_error : error{
+		
+	};
 };};

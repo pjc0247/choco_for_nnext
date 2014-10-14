@@ -11,19 +11,21 @@ namespace choco{
 namespace orm{
 
 	/* from orm/config.cpp */
-	int initialize_config();
+	error initialize_config();
 
 	/* from orm/pool.cpp */
-	int initialize_pool();
+	error initialize_pool();
 	void cleanup_pool();
 
-	int initialize(){
-		if( initialize_config() )
-			return false;
-		if( initialize_pool() )
-			return false;
+	error initialize(){
+		error ret;
+		ret = initialize_config();
+		_RETURN_ERR(ret);
 
-		return 0;
+		ret = initialize_pool();
+		_RETURN_ERR(ret);
+
+		return errorno::none;
 	}
 	void cleanup(){
 		cleanup_pool();
