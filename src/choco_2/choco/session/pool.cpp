@@ -15,6 +15,7 @@ namespace session{
 	error pool::initialize(){
 		int ret;
 		int inbuf_size;
+		int pool_size;
 
 		ret = config::get_as_int(
 			config::keys::session_inbuf_size,
@@ -22,7 +23,13 @@ namespace session{
 		if(ret != 0)
 			return ret;
 
-		for(int i=0;i<POOL_MAX;i++){
+		ret = config::get_as_int(
+			config::keys::session_pool_size,
+			pool_size);
+		if(ret != 0)
+			return ret;
+
+		for(int i=0;i<pool_size;i++){
 			conn *c = new conn();
 			
 			conns.push_back(c);
@@ -34,7 +41,7 @@ namespace session{
 
 		log::system(
 			"session::pool - initialized / size : %d\n",
-			POOL_MAX);
+			pool_size);
 
 		return errorno::none;
 	}

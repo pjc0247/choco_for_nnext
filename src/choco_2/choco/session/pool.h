@@ -11,8 +11,6 @@ namespace session{
 
 	class pool{
 	public:
-		static const int POOL_MAX = 1024;
-
 		typedef std::vector<conn*>::iterator iterator;
 
 	public:
