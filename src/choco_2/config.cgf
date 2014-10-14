@@ -24,6 +24,8 @@ pool_size = 10
 
 [mysql]
 host=localhost
+port=3306
 user=root
 password=asdf1234
 db_name=test
+pool_size=10
