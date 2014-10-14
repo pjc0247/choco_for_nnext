@@ -52,9 +52,6 @@
     <Filter Include="소스 파일\card_game">
       <UniqueIdentifier>{9326403e-923d-42ff-9c50-a972b0f5cd7a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\choco\debug">
-      <UniqueIdentifier>{00278784-a62a-4dcf-87d9-551ad192a430}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\choco\config">
       <UniqueIdentifier>{8ade2a11-5f17-4fb5-8bfb-b9f52aca67d4}</UniqueIdentifier>
     </Filter>
@@ -155,9 +152,6 @@
     </ClInclude>
     <ClInclude Include="card_server\packet_macro.h">
       <Filter>소스 파일\card_game</Filter>
-    </ClInclude>
-    <ClInclude Include="choco\debug\invoke.h">
-      <Filter>소스 파일\choco\debug</Filter>
     </ClInclude>
     <ClInclude Include="choco\mt\sleep.h">
       <Filter>소스 파일\choco\mt</Filter>
@@ -280,9 +274,6 @@
     </ClCompile>
     <ClCompile Include="choco\orm\async_support.cpp">
       <Filter>소스 파일\choco\orm</Filter>
-    </ClCompile>
-    <ClCompile Include="choco\debug\invoke.cpp">
-      <Filter>소스 파일\choco\debug</Filter>
     </ClCompile>
     <ClCompile Include="choco\mt\sleep.cpp">
       <Filter>소스 파일\choco\mt</Filter>

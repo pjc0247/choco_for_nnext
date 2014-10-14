@@ -34,7 +34,7 @@
 
 #include "choco/orm/orm.h"
 
-#include "choco/debug/invoke.h"
+//#include "choco/debug/invoke.h"
 
 #include "choco/util/uniqid.h"
 

@@ -92,7 +92,6 @@
     <ClInclude Include="choco\config\config.h" />
     <ClInclude Include="choco\config\keys.h" />
     <ClInclude Include="choco\config\parser.h" />
-    <ClInclude Include="choco\debug\invoke.h" />
     <ClInclude Include="choco\error\errno.h" />
     <ClInclude Include="choco\error\error.h" />
     <ClInclude Include="choco\group\group.h" />
@@ -129,7 +128,6 @@
     <ClCompile Include="choco\choco.cpp" />
     <ClCompile Include="choco\config\config.cpp" />
     <ClCompile Include="choco\config\parser.cpp" />
-    <ClCompile Include="choco\debug\invoke.cpp" />
     <ClCompile Include="choco\group\group.cpp" />
     <ClCompile Include="choco\http\open_uri.cpp" />
     <ClCompile Include="choco\intf\handler.cpp" />
