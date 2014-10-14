@@ -29,7 +29,9 @@ namespace keys{
 
 	/* mysql */
 	_DEF_KEY(mysql, host);
+	_DEF_KEY(mysql, port);
 	_DEF_KEY(mysql, user);
 	_DEF_KEY(mysql, password);
 	_DEF_KEY(mysql, db_name);
+	_DEF_KEY(mysql, pool_size);
 };};};
