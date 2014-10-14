@@ -11,5 +11,5 @@ err = http::open_uri(
   "http://www.google.com", doc);
 ```
 
-* 반환하는 에러
+__errorno__
 - 
