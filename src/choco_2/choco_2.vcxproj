@@ -42,8 +42,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)\;$(SolutionDir)\libcurl\include;C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\libcurl\;C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\;$(SolutionDir)\libcurl\include;$(SolutionDir)\mysql\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\libcurl\;$(SolutionDir)\mysql\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
