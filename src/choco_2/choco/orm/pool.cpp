@@ -6,6 +6,8 @@
 #include <mysql.h>
 
 #include "choco/log/log.h"
+#include "choco/config/config.h"
+#include "choco/config/keys.h"
 
 using namespace std;
 using namespace chrono;
@@ -18,24 +20,23 @@ namespace orm{
 	_declspec(thread) MYSQL *local_db = nullptr;
 
 	error initialize_pool(){
-		string host = get_config("host");
-		string user = get_config("user");
-		string passwd = get_config("password");
-		string db = get_config("db");
-		int port;
-		int pool_size;
+		int ret;
+		int port, pool_size;
+		string host, user, password, db;
 
-		sscanf(
-			get_config("pool_size").c_str(), "%d", &pool_size );
-		sscanf(
-			get_config("port").c_str(), "%d", &port );
+		_CONFIG_INT(mysql_pool_size, pool_size);
+		_CONFIG_STR(mysql_host, host);
+		_CONFIG_INT(mysql_port, port);
+		_CONFIG_STR(mysql_user, user);
+		_CONFIG_STR(mysql_password, password);
+		_CONFIG_STR(mysql_db_name, db);
 
 		for(int i=0;i<pool_size;i++){
 			MYSQL *mysql = mysql_init(NULL);
 
 			if( mysql_real_connect(
 				mysql,
-				host.c_str(), user.c_str(), passwd.c_str(), 
+				host.c_str(), user.c_str(), password.c_str(), 
 				db.c_str(), port, NULL, NULL) == 0 ){
 			
 				/* connection error */
