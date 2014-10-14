@@ -7,7 +7,8 @@
 namespace choco{
 namespace session{
 
-	pool::pool(){
+	pool::pool() :
+		size(0), accepted(0){
 	}
 	pool::~pool(){
 	}
@@ -29,7 +30,8 @@ namespace session{
 		if(ret != 0)
 			return ret;
 
-		for(int i=0;i<pool_size;i++){
+		size = 0;
+		for(int i=0;i<pool_size;i++,size++){
 			conn *c = new conn();
 			
 			conns.push_back(c);
@@ -56,5 +58,12 @@ namespace session{
 	}
 	pool::iterator pool::end(){
 		return conns.end();
+	}
+
+	int pool::get_size(){
+		return size;
+	}
+	int pool::get_accepted(){
+		return accepted;
 	}
 };};

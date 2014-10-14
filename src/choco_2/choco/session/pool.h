@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <atomic>
 
 #include "choco/error/errno.h"
 
@@ -23,9 +24,13 @@ namespace session{
 		iterator begin();
 		iterator end();
 
+		int get_size();
+		int get_accepted();
+
 	private:
 		std::vector<conn*> conns;
 
 		int size;
+		std::atomic<int> accepted;
 	};
 };};
