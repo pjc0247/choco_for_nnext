@@ -24,23 +24,19 @@ namespace server{
 
 		ret = config::get_as_int(
 			config::keys::server_pool_size, pool_size);
-		if(ret != errorno::none)
-			return ret;
+		_RETURN_ERR(ret);
 
 		ret = config::get_as_int(
 			config::keys::server_backlog_size, backlog_size);
-		if(ret != errorno::none)
-			return ret;
+		_RETURN_ERR(ret);
 
 		ret = config::get_as_string(
 			config::keys::server_host, host);
-		if(ret != errorno::none)
-			return ret;
+		_RETURN_ERR(ret);
 
 		ret = config::get_as_int(
 			config::keys::server_port, port);
-		if(ret != errorno::none)
-			return ret;
+		_RETURN_ERR(ret);
 
 
 		hostent* hostInfo =

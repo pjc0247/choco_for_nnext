@@ -21,14 +21,12 @@ namespace session{
 		ret = config::get_as_int(
 			config::keys::session_inbuf_size,
 			inbuf_size);
-		if(ret != 0)
-			return ret;
+		_RETURN_ERR(ret);
 
 		ret = config::get_as_int(
 			config::keys::session_pool_size,
 			pool_size);
-		if(ret != 0)
-			return ret;
+		_RETURN_ERR(ret);
 
 		size = 0;
 		for(int i=0;i<pool_size;i++,size++){

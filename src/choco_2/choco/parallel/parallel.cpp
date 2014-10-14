@@ -15,10 +15,10 @@ namespace parallel{
 
 		worker_pool = new pool();
 		ret = worker_pool->initialize();
-		if(ret) return ret;
+		_RETURN_ERR(ret);
 
 		ret = initialize_scheduler();
-		if(ret) return ret;
+		_RETURN_ERR(ret);
 
 		return errorno::none;
 	}

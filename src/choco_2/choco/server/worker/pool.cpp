@@ -23,8 +23,7 @@ namespace worker{
 
 		ret = config::get_as_int(
 			config::keys::server_pool_size, pool_size);
-		if(ret != errorno::none)
-			return ret;
+		_RETURN_ERR(ret);
 
 		auto bound_method = 
 			std::bind(func, server);

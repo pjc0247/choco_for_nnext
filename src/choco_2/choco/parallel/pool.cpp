@@ -25,8 +25,7 @@ namespace parallel{
 		/* get pool_size from configs */
 		ret = config::get_as_int(
 			config::keys::parallel_pool_size, pool_size);
-		if(ret != errorno::none)
-			return ret;
+		_RETURN_ERR(ret);
 
 		for(int i=0;i<pool_size;i++){
 			auto bound_method = 
