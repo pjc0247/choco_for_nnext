@@ -186,6 +186,9 @@
     <ClInclude Include="choco\cluster\packet.h">
       <Filter>소스 파일\choco\cluster</Filter>
     </ClInclude>
+    <ClInclude Include="choco\util\hash.h">
+      <Filter>소스 파일\choco\util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -292,6 +295,9 @@
     </ClCompile>
     <ClCompile Include="choco\lua\lua_support.cpp">
       <Filter>소스 파일\choco\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\util\hash.cpp">
+      <Filter>소스 파일\choco\util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -45,6 +45,8 @@ namespace worker{
 				s->get_iocp_handle(), 0,0);
 			if( h_ret == INVALID_HANDLE_VALUE )
 				return errorno::iocp_error;
+
+
 		}
 		/* 연결 거부, 소켓 재활용 */
 		else{
