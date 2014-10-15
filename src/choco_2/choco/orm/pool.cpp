@@ -20,7 +20,6 @@ namespace orm{
 	_declspec(thread) MYSQL *local_db = nullptr;
 
 	error initialize_pool(){
-		int ret;
 		int port, pool_size;
 		string host, user, password, db;
 

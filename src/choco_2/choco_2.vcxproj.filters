@@ -189,6 +189,9 @@
     <ClInclude Include="choco\util\hash.h">
       <Filter>소스 파일\choco\util</Filter>
     </ClInclude>
+    <ClInclude Include="choco\packet\packet_macro.h">
+      <Filter>소스 파일\choco\packet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

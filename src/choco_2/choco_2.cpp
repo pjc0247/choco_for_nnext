@@ -14,8 +14,56 @@
 #pragma comment (lib,"libmysql")
 
 using namespace std;
+using namespace choco;
 
 choco::server::server *sv;
+
+class minsoo : public intf::handler{
+public:
+	minsoo(){
+		_ROUTE(minsoo, login_request);
+		_ROUTE(minsoo, foo);
+	}
+
+	virtual int on_connected(
+		session::conn *client){
+
+		printf("Á¢¼Ó¹Þ¾Ñ´Ù\n");
+		return 0;
+	}
+	virtual void on_disconnected(
+		session::conn *client){
+		printf("¤¢¤¸\n");
+	}
+
+	virtual void on_login_request(
+		session::conn *client,
+		login_request *pkt){
+
+
+		login_response resp;
+		if(strcmp(pkt->user_id, "user") == 0 &&
+			strcmp(pkt->user_pw, "asdf1234") == 0){
+
+			resp.result = true;
+			strcpy(resp.nickname, "pjc0247");
+			client->send(&resp, sizeof(login_response));
+		}
+		else{
+			resp.result = false;
+			client->send(&resp, sizeof(login_response));
+		}
+	}
+	virtual void on_foo(
+		session::conn *client,
+		foo *pkt){
+
+		bar b;
+		b.a = pkt->a + 1;
+
+		client->send(&b, sizeof(bar));
+	}
+};
 
 int _tmain(int argc, _TCHAR* argv[]){
 
@@ -35,7 +83,7 @@ int _tmain(int argc, _TCHAR* argv[]){
 		choco::init_log | choco::init_parallel |
 		choco::init_mysql);
 
-	card_server *intf = new card_server();
+	auto *intf = new minsoo();
 	choco::server::server *server = new
 		choco::server::server(intf);
 
@@ -51,7 +99,7 @@ int _tmain(int argc, _TCHAR* argv[]){
 	while( true ){
 		choco::log::output(
 			"[running] / \n");
-		Sleep(2000);
+		Sleep(5000);
 	};
 
 	return 0;

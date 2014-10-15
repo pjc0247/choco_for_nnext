@@ -5,7 +5,9 @@
 
 enum packet_id{
 	id_login_request=1,
-	id_login_response
+	id_login_response,
+	id_foo,
+	id_bar
 };
 
 PACKET(login_request)
@@ -16,4 +18,12 @@ END
 PACKET(login_response)
 	INT(result);
 	STRING(nickname);
+END
+
+PACKET(foo)
+	INT(a);
+END
+
+PACKET(bar)
+	INT(a);
 END

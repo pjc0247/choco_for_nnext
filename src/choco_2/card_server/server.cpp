@@ -10,7 +10,7 @@ card_server::card_server(){
 		std::placeholders::_1, std::placeholders::_2));
 		*/
 
-	_ROUTE_ASYNC(card_server, login_request);
+	//_ROUTE_ASYNC(card_server, login_request);
 }
 card_server::~card_server(){
 }

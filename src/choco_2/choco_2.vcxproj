@@ -47,6 +47,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir)\;$(SolutionDir)\libcurl\include;$(SolutionDir)\mysql\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\libcurl\;$(SolutionDir)\mysql\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -73,6 +75,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -109,6 +113,7 @@
     <ClInclude Include="choco\mt\sleep.h" />
     <ClInclude Include="choco\orm\orm.h" />
     <ClInclude Include="choco\packet\packet.h" />
+    <ClInclude Include="choco\packet\packet_macro.h" />
     <ClInclude Include="choco\parallel\async.h" />
     <ClInclude Include="choco\parallel\parallel.h" />
     <ClInclude Include="choco\parallel\pool.h" />
