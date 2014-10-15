@@ -40,7 +40,7 @@ public:
     
     void send_login_response(
         intf::sendable *to,
-        INT(result), STRING(user_nickname)){
+        INT(result), CSTRING(user_nickname)){
         
         login_response pkt;
         pkt.result = result;
