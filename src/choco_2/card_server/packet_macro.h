@@ -5,7 +5,7 @@
 		name(){ \
 			memset(this, 0, sizeof(this)); \
 			id = id_##name; \
-			size = sizeof(this); \
+			size = sizeof(name); \
 		};
 #define END };
 
