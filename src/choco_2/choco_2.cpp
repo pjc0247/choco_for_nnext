@@ -115,8 +115,6 @@ int _tmain(int argc, _TCHAR* argv[]){
 		choco::init_log | choco::init_parallel |
 		choco::init_mysql | choco::init_mem);
 
-	mem::initialize();
-
 	auto intf = new minsoo();
 	choco::server::server *server = new
 		choco::server::server(intf);
