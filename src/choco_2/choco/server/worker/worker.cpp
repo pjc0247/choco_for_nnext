@@ -6,6 +6,7 @@
 #include "choco/server/server.h"
 #include "choco/mt/mt.h"
 #include "choco/mt/microthread.h"
+#include "choco/mem/mem.h"
 
 #include <MSWSock.h>
 
@@ -17,6 +18,8 @@ namespace worker{
 		server *sv){
 
 		mt::initialize();
+		mem::initialize();
+
 		while(true){
 			BOOL ret;
 			DWORD tranferred;
@@ -52,5 +55,6 @@ namespace worker{
 		}
 
 		mt::cleanup();
+		mem::cleanup();
 	}
 };};};
