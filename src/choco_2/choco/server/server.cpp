@@ -1,8 +1,11 @@
 #include "server.h"
 
+#include <MSWSock.h>
+
 #include "choco/config/config.h"
 #include "choco/config/keys.h"
 #include "choco/log/log.h"
+#include "choco/intf/hook.h"
 
 using namespace std;
 
@@ -81,7 +84,7 @@ namespace server{
 
 		/* init session_pool */
 		session_pool = new session::pool();
-		session_pool->initialize();
+		session_pool->initialize(this);
 		for(auto conn : *session_pool)
 			conn->accept(sock);
 
@@ -123,6 +126,151 @@ namespace server{
 			iocp, 0,
 			0, &evt);
 		
+		return errorno::none;
+	}
+
+	void server::add_hooker(
+		intf::hook *h){
+
+		hookers.push_back(h);
+	}
+
+	error server::process_connection(
+		session::conn *client){
+
+		HANDLE h_ret;
+		int localSize, removeSize;
+		socket server_sock = sock;
+		socket conn_sock = client->get_socket();
+
+		GetAcceptExSockaddrs(
+			client->get_buffer(), 0,
+			sizeof(sockaddr_in) + 16, sizeof(sockaddr_in) + 16,
+			(sockaddr **)&client->get_local_addr(), &localSize,
+			(sockaddr **)&client->get_remote_addr(), &removeSize);
+
+		setsockopt(
+			conn_sock,
+			SOL_SOCKET, SO_UPDATE_ACCEPT_CONTEXT,
+			(char *)&server_sock, sizeof(socket));
+
+		h_ret = CreateIoCompletionPort(
+			(HANDLE)conn_sock,
+			iocp, 0,0);
+		if(h_ret == INVALID_HANDLE_VALUE)
+			return errorno::iocp_error;
+
+		intf->on_connected(client);
+
+		return errorno::none;
+	}
+	error server::process_disconnection(
+		session::conn *client){
+
+		intf->on_disconnected(client);
+
+		return errorno::none;
+	}
+	error server::process_recv(
+		session::conn *client, event *evt,
+		void *buffer, int len){
+
+		DWORD flags = 0;
+		DWORD received;
+		WSABUF buf;
+		buf.buf = (char*)buffer;
+		buf.len = len;
+
+		memset(evt, 0, sizeof(event));
+		evt->conn = client;
+		evt->type = event_recv;
+
+		int ret = WSARecv(
+			client->get_socket(),
+			&buf, 1,
+			&received, &flags,
+			evt, nullptr);
+
+		return errorno::none;
+	}
+	error server::process_send(
+		session::conn *client, event *evt,
+		void *buffer, int len){
+
+		void *out_buffer = buffer;
+		int out_len = len;
+		process_hook(
+			hook_send, client,
+			buffer, len,
+			out_buffer, out_len);
+
+		DWORD sent;
+		WSABUF buf;
+		buf.buf = (char*)out_buffer;
+		buf.len = out_len;
+
+		WSASend(
+			client->get_socket(),
+			&buf, 1, &sent,
+			0, nullptr, nullptr);
+
+		if(out_buffer != nullptr)
+			free(out_buffer);
+
+		return errorno::none;
+	}
+	error server::process_recv_completion(
+		session::conn *client, event *evt,
+		int len){
+
+		void *in_buffer =
+			client->get_buffer() + client->get_buffer_ptr();
+		void *out_buffer = in_buffer;
+		int out_len = len;
+
+		client->incr_buffer_ptr(len);
+		process_hook(
+			hook_recv, client,
+			in_buffer, len,
+			out_buffer, out_len);
+		intf->on_data(
+			client,
+			out_buffer, out_len);
+
+		if(out_buffer != nullptr)
+			free(out_buffer);
+
+		return errorno::none;
+	}
+	error server::process_hook(
+		hook_type hook,
+		session::conn *client,
+		void *in_data, int in_len,
+		void *&out_data, int &out_len){
+
+		void *orig_in_data = in_data;
+
+		for(intf::hook* h : hookers){
+			switch(hook){
+			case hook_recv:
+				h->on_recv(client,
+					in_data, in_len, out_data, out_len);
+				break;
+			case hook_send:
+				h->on_send(client,
+					in_data, in_len, out_data, out_len);
+				break;
+			}
+
+			/* cleanup */
+			if(in_data != orig_in_data)
+				free(in_data);
+		
+			/* update for next hook */
+			in_data = out_data;
+			in_len = out_len;
+		}
+
 		return errorno::none;
 	}
 

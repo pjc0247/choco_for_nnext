@@ -8,6 +8,10 @@
 #include "conn.h"
 
 namespace choco{
+namespace server{
+	class server;
+};
+
 namespace session{
 
 	class pool{
@@ -18,7 +22,8 @@ namespace session{
 		pool();
 		virtual ~pool();
 
-		error initialize();
+		error initialize(
+			server::server *sv);
 		void cleanup();
 
 		iterator begin();

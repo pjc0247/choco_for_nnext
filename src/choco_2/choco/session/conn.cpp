@@ -20,6 +20,7 @@ namespace session{
 	}
 
 	error conn::open(
+		server::server *_sv,
 		int inbuf_size){
 
 		sock = ::socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -34,7 +35,8 @@ namespace session{
 		evt.conn = this;
 
 		inbuf_max = inbuf_size;
-		
+		sv = _sv;
+
 		return errorno::none;
 	}
 	error conn::accept(
@@ -77,22 +79,10 @@ namespace session{
 	int conn::recv(
 		int len){
 
-		DWORD flags = 0;
-		DWORD received;
-		WSABUF buf;
-		buf.buf = inbuf;
-		buf.len = len;
 		inbuf_ptr = 0;
-
-		memset(&evt, 0, sizeof(event));
-		evt.conn = this;
-		evt.type = server::event_recv;
-
-		int r = WSARecv(
-			sock,
-			&buf, 1,
-			&received, &flags,
-			&evt, nullptr);
+		sv->process_recv(
+			this, &evt,
+			inbuf, len);
 
 		return true;
 	}
@@ -102,37 +92,18 @@ namespace session{
 		if(inbuf_max <= inbuf_ptr+len)
 			return false;
 
-		DWORD flags = 0;
-		DWORD received;
-		WSABUF buf;
-		buf.buf = inbuf + inbuf_ptr;
-		buf.len = len;
-
-		memset(&evt, 0, sizeof(event));
-		evt.conn = this;
-		evt.type = server::event_recv;
-
-		WSARecv(
-			sock,
-			&buf, 1,
-			&received, &flags,
-			&evt, nullptr);
+		sv->process_recv(
+			this, &evt,
+			inbuf + inbuf_ptr, len);
 			
 		return true;
 	}
 	int conn::send(
 		void *data,int len){
 
-		DWORD sent;
-		WSABUF buf;
-		buf.buf = (char*)data;
-		buf.len = len;
-
-		WSASend(
-			sock,
-			&buf, 1, &sent,
-			0,
-			nullptr, nullptr);
+		sv->process_send(
+			this, &evt,
+			data, len);
 
 		return true;
 	}

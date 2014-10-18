@@ -13,7 +13,9 @@ namespace session{
 	pool::~pool(){
 	}
 
-	error pool::initialize(){
+	error pool::initialize(
+		server::server *sv){
+
 		int ret;
 		int inbuf_size;
 		int pool_size;
@@ -33,7 +35,7 @@ namespace session{
 			conn *c = new conn();
 			
 			conns.push_back(c);
-			ret = c->open(inbuf_size);
+			ret = c->open(sv, inbuf_size);
 
 			if(ret != 0)
 				return ret;

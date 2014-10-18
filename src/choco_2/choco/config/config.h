@@ -5,11 +5,11 @@
 
 #include "choco/error/errno.h"
 
-#define _CONFIG(key, dst, type) {\
+#define _CONFIG(key, dst, type) do{\
 	int ret = choco::config::get_as_##type( \
 		choco::config::keys::##key, dst); \
 	_RETURN_ERR(ret); \
-	} while(0);
+	} while(0)
 #define _CONFIG_STR(key, dst) _CONFIG(key,dst, string)
 #define _CONFIG_INT(key, dst) _CONFIG(key,dst, int)
 

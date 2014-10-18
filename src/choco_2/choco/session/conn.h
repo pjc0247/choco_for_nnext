@@ -7,6 +7,9 @@
 #include "choco/error/errno.h"
 
 namespace choco{
+namespace server{
+	class server;
+};
 namespace intf{
 	class handler;
 };
@@ -21,6 +24,7 @@ namespace session{
 		virtual ~conn();
 
 		error open(
+			server::server *sv,
 			int inbuf_size);
 		void close();
 
@@ -51,6 +55,7 @@ namespace session{
 			int v);
 
 	private:
+		server::server *sv;
 		socket sock;
 		sockaddr_in local_addr, remote_addr;
 		event evt;

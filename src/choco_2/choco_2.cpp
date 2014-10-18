@@ -18,6 +18,35 @@ using namespace choco;
 
 choco::server::server *sv;
 
+class my_hook : public intf::hook{
+public:
+	virtual error on_send(
+		session::conn *client,
+		void *in_data, int in_len,
+		void *&out_data, int &out_len){
+
+		out_data = malloc(in_len);
+		out_len = in_len;
+		memcpy(out_data, in_data, in_len);
+
+		printf("on send %d\n", in_len);
+
+		return errorno::none;
+	}
+	virtual error on_recv(
+		session::conn *client,
+		void *in_data, int in_len,
+		void *&out_data, int &out_len){
+
+		out_data = malloc(in_len);
+		out_len = in_len;
+		memcpy(out_data, in_data, in_len);
+
+		printf("on recv %d\n", in_len);
+
+		return errorno::none;
+	}
+};
 class minsoo : public intf::handler{
 public:
 	minsoo(){
@@ -29,6 +58,8 @@ public:
 		session::conn *client){
 
 		printf("Á¢¼Ó¹Þ¾Ñ´Ù\n");
+
+		client->recv(4);
 		return 0;
 	}
 	virtual void on_disconnected(
@@ -40,6 +71,7 @@ public:
 		session::conn *client,
 		login_request *pkt){
 
+		printf("do login\n");
 
 		login_response resp;
 		if(strcmp(pkt->user_id, "user") == 0 &&
@@ -81,11 +113,18 @@ int _tmain(int argc, _TCHAR* argv[]){
 
 	choco::initialize(
 		choco::init_log | choco::init_parallel |
-		choco::init_mysql);
+		choco::init_mysql | choco::init_mem);
 
-	auto *intf = new minsoo();
+	mem::initialize();
+
+	auto intf = new minsoo();
 	choco::server::server *server = new
 		choco::server::server(intf);
+
+	auto h = new my_hook();
+	server->add_hooker(h);
+	server->add_hooker(h);
+
 
 	sv = server;
 	
