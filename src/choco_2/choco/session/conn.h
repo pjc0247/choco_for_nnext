@@ -54,6 +54,10 @@ namespace session{
 		void incr_buffer_ptr(
 			int v);
 
+		void *get_user_data();
+		void set_user_data(
+			void *user_data);
+
 	private:
 		server::server *sv;
 		socket sock;
@@ -64,5 +68,7 @@ namespace session{
 		int inbuf_max, inbuf_ptr;
 
 		int state; /* for intf::handler */
+
+		void *user_data;
 	};
 };};

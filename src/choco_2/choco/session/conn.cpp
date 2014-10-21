@@ -148,4 +148,13 @@ namespace session{
 
 		inbuf_ptr += v;
 	}
+
+	void *conn::get_user_data(){
+		return user_data;
+	}
+	void conn::set_user_data(
+		void *_user_data){
+
+		user_data = _user_data;
+	}
 };};
