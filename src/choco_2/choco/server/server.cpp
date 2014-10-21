@@ -22,28 +22,48 @@ namespace server{
 
 	error server::open(){
 		int ret;
-		int pool_size, port, backlog_size;
+		int pool_size;
+		int backlog_size, port;
 		string host;
 
-		ret = config::get_as_int(
-			config::keys::server_pool_size, pool_size);
+		_CONFIG_INT(server_pool_size, pool_size);
+		_CONFIG_INT(server_backlog_size, backlog_size);
+		_CONFIG_INT(server_port, port);
+		_CONFIG_STR(server_host, host);
+
+		ret = initialize_socket(
+			host, port,
+			backlog_size);
 		_RETURN_ERR(ret);
 
-		ret = config::get_as_int(
-			config::keys::server_backlog_size, backlog_size);
+		ret = initialize_iocp(
+			pool_size);
 		_RETURN_ERR(ret);
 
-		ret = config::get_as_string(
-			config::keys::server_host, host);
-		_RETURN_ERR(ret);
+		/* init worker_pool */
+		worker_pool = new worker::pool();
+		worker_pool->initialize(this);
 
-		ret = config::get_as_int(
-			config::keys::server_port, port);
-		_RETURN_ERR(ret);
+		/* init session_pool */
+		session_pool = new session::pool();
+		session_pool->initialize(this);
+		for(auto conn : *session_pool)
+			conn->accept(sock);
 
+		log::system(
+			"server - initialized / addr : %s:%d, backlog : %d\n",
+			host.c_str(), port, backlog_size);
+
+		return errorno::none;
+	}
+	error server::initialize_socket(
+		const std::string &host, int port,
+		int backlog_size){
+
+		int ret;
 
 		hostent* hostInfo =
-			gethostbyname( host.c_str() );
+			gethostbyname(host.c_str());
 		if(hostInfo == nullptr)
 			return errorno::host_error;
 
@@ -65,6 +85,11 @@ namespace server{
 		if(ret == SOCKET_ERROR)
 			return errorno::listen_error;
 
+		return errorno::none;
+	}
+	error server::initialize_iocp(
+		int pool_size){
+
 		iocp = CreateIoCompletionPort(
 			INVALID_HANDLE_VALUE, nullptr,
 			0, pool_size);
@@ -77,20 +102,6 @@ namespace server{
 			(ULONG_PTR)0, 0);
 		if( h_ret == INVALID_HANDLE_VALUE )
 			return errorno::iocp_error;
-
-		/* init worker_pool */
-		worker_pool = new worker::pool();
-		worker_pool->initialize(this);
-
-		/* init session_pool */
-		session_pool = new session::pool();
-		session_pool->initialize(this);
-		for(auto conn : *session_pool)
-			conn->accept(sock);
-
-		log::system(
-			"server - initialized / addr : %s:%d, backlog : %d\n",
-			host.c_str(), port, backlog_size);
 
 		return errorno::none;
 	}

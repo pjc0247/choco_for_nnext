@@ -68,6 +68,12 @@ namespace server{
 			int len);
 
 	private:
+		error initialize_socket(
+			const std::string &host, int port,
+			int backlog_size);
+		error initialize_iocp(
+			int pool_size);
+
 		error process_hook(
 			hook_type hook,
 			session::conn *client,
