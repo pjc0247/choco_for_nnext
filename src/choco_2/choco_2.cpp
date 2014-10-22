@@ -29,6 +29,8 @@ public:
 		session::conn *client){
 
 		printf("Á¢¼Ó¹Þ¾Ñ´Ù\n");
+
+		client->recv(4);
 		return 0;
 	}
 	virtual void on_disconnected(
@@ -40,6 +42,7 @@ public:
 		session::conn *client,
 		login_request *pkt){
 
+		printf("on login\n");
 
 		login_response resp;
 		if(strcmp(pkt->user_id, "user") == 0 &&
@@ -58,6 +61,7 @@ public:
 		session::conn *client,
 		foo *pkt){
 
+		printf("on foo %d\n", pkt->a);
 		bar b;
 		b.a = pkt->a + 1;
 
