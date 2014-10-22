@@ -5,9 +5,9 @@
 
 #include "choco.h"
 
-#define INIT_SUBSYSTEM(init_flag, init_path) \
+#define INIT_SUBSYSTEM(init_flag, init_path, ...) \
 	if(subsystems & init_flag){ \
-		int ret = init_path::initialize(); \
+		int ret = init_path::initialize(__VA_ARGS__); \
 		if(ret){ \
 			log::error( \
 			#init_path " - failed to init / err : %d\n", \
@@ -35,9 +35,11 @@ namespace choco{
 			"choco - initialized\n");
 
 		initialized_subsystems = 0;
+
 		INIT_SUBSYSTEM(init_log, log);
 		INIT_SUBSYSTEM(init_parallel, parallel);
 		INIT_SUBSYSTEM(init_mysql, orm);
+		INIT_SUBSYSTEM(init_mem, mem, true);
 
 		return errorno::none;
 	}

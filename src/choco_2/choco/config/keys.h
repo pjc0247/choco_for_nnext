@@ -13,6 +13,13 @@ namespace keys{
 	/* log */
 	_DEF_KEY(log, filter);
 
+	/* mem */
+	_DEF_KEY(mem, pool_32);
+	_DEF_KEY(mem, pool_64);
+	_DEF_KEY(mem, pool_128);
+	_DEF_KEY(mem, pool_256);
+	_DEF_KEY(mem, pool_512);
+
 	/* server */
 	_DEF_KEY(server, host);
 	_DEF_KEY(server, port);

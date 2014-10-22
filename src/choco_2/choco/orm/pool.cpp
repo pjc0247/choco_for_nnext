@@ -43,7 +43,7 @@ namespace orm{
 				return false;
 			}
 
-			mysql_autocommit( mysql, false );
+			//mysql_autocommit( mysql, false );
 
 			conns.push( mysql );
 		}

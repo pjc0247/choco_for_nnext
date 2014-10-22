@@ -10,6 +10,8 @@
 
 #include "choco/log/log.h"
 
+#include "choco/mem/mem.h"
+
 #include "choco/mt/mt.h"
 #include "choco/mt/microthread.h"
 #include "choco/mt/async.h"
@@ -17,6 +19,7 @@
 
 #include "choco/intf/raw.h"
 #include "choco/intf/handler.h"
+#include "choco/intf/hook.h"
 
 #include "choco/packet/packet.h"
 
@@ -43,7 +46,8 @@ namespace choco{
 	enum subsystem{
 		init_log =1,
 		init_parallel =2,
-		init_mysql =4
+		init_mysql =4,
+		init_mem =8
 	};
 
 	error initialize(

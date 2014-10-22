@@ -67,6 +67,9 @@
     <Filter Include="소스 파일\choco\lua">
       <UniqueIdentifier>{14a8c831-833f-413f-ae5a-a158813550ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\choco\mem">
+      <UniqueIdentifier>{5b34109a-d385-4038-a592-784b677ce8d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -192,6 +195,15 @@
     <ClInclude Include="choco\packet\packet_macro.h">
       <Filter>소스 파일\choco\packet</Filter>
     </ClInclude>
+    <ClInclude Include="choco\intf\hook.h">
+      <Filter>소스 파일\choco\intf</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\mem\mem.h">
+      <Filter>소스 파일\choco\mem</Filter>
+    </ClInclude>
+    <ClInclude Include="choco\mem\pool.h">
+      <Filter>소스 파일\choco\mem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -301,6 +313,12 @@
     </ClCompile>
     <ClCompile Include="choco\util\hash.cpp">
       <Filter>소스 파일\choco\util</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\mem\mem.cpp">
+      <Filter>소스 파일\choco\mem</Filter>
+    </ClCompile>
+    <ClCompile Include="choco\mem\pool.cpp">
+      <Filter>소스 파일\choco\mem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

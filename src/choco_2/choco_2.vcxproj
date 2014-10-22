@@ -102,11 +102,14 @@
     <ClInclude Include="choco\http\client.h" />
     <ClInclude Include="choco\http\open_uri.h" />
     <ClInclude Include="choco\intf\handler.h" />
+    <ClInclude Include="choco\intf\hook.h" />
     <ClInclude Include="choco\intf\raw.h" />
     <ClInclude Include="choco\intf\sendable.h" />
     <ClInclude Include="choco\log\log.h" />
     <ClInclude Include="choco\lua\lua.h" />
     <ClInclude Include="choco\macro.h" />
+    <ClInclude Include="choco\mem\mem.h" />
+    <ClInclude Include="choco\mem\pool.h" />
     <ClInclude Include="choco\mt\async.h" />
     <ClInclude Include="choco\mt\microthread.h" />
     <ClInclude Include="choco\mt\mt.h" />
@@ -142,6 +145,8 @@
     <ClCompile Include="choco\log\log.cpp" />
     <ClCompile Include="choco\lua\lua.cpp" />
     <ClCompile Include="choco\lua\lua_support.cpp" />
+    <ClCompile Include="choco\mem\mem.cpp" />
+    <ClCompile Include="choco\mem\pool.cpp" />
     <ClCompile Include="choco\mt\microthread.cpp" />
     <ClCompile Include="choco\mt\mt.cpp" />
     <ClCompile Include="choco\mt\sleep.cpp" />

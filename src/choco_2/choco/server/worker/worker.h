@@ -7,5 +7,5 @@ namespace server{
 
 namespace worker{
 
-	void func(server *s);
+	void func(server *sv);
 };};};
