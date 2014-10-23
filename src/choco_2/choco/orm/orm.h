@@ -66,6 +66,7 @@ namespace orm{
 		query *select(int count, ...);
 
 		query *limit(int limit);
+		query *offset(int offset);
 
 		query *order_by_expr(const std::string &expr);
 		query *order_by_asc(const std::string &col);
@@ -121,6 +122,7 @@ namespace orm{
 		void set_query_type(int query_type);
 		void set_table(const std::string &table);
 		void set_limit(int limit);
+		void set_offset(int offset);
 
 		void add_result_column(const std::string &col);
 		void add_condition(
@@ -141,6 +143,7 @@ namespace orm{
 		std::string build_into();
 
 		std::string build_limit();
+		std::string build_offset();
 	
 		std::string build_select();
 		std::string build_update();
@@ -188,6 +191,7 @@ namespace orm{
 		std::map<std::string,std::string> fields;
 
 		int n_limit;
+		int n_offset;
 		bool currupted;
 
 		MYSQL *mysql;

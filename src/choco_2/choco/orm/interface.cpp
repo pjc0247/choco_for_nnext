@@ -90,6 +90,11 @@ namespace orm{
 
 		return this;
 	}
+	query *query::offset(int offset){
+		set_offset( offset );
+
+		return this;
+	}
 
 	query *query::order_by_expr(const string &expr){
 		add_order_by( expr, "" );

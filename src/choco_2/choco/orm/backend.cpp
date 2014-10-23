@@ -31,6 +31,9 @@ namespace orm{
 	void query::set_limit(int _limit){
 		n_limit = _limit;
 	}
+	void query::set_offset(int _offset){
+		n_offset = _offset;
+	}
 
 	void query::add_result_column(const string &col){
 		results.push_back( col );

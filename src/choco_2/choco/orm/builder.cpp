@@ -123,6 +123,18 @@ namespace orm{
 	
 		return query;
 	}
+	string query::build_offset(){
+		string query = "OFFSET ";
+		char buf[12];
+
+		if( n_offset == 0 )
+			return "";
+
+		sprintf( buf, "%d", n_offset );
+		query += string(buf);
+
+		return query;
+	}
 
 	string query::build_select(){
 		string query = "SELECT ";
