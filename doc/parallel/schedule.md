@@ -12,7 +12,7 @@ void func(){
 }
 
 /* 작업을 3초 후에 한 번만 실행 */
-parallel::schedule_once(func, 4000);
+parallel::schedule_once(func, 3000);
 
 /* 작업을 5초마다 실행 */
 parallel::schedule(func, 5000);
