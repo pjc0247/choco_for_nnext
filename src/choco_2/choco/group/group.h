@@ -16,16 +16,15 @@ namespace session{
 		group();
 		virtual ~group();
 
-		void add_child(
-			group *c);
-		void remove_child(
-			group *c);
+		void join(
+			intf::sendable *s);
+		void remove(
+			intf::sendable *s);
 
 		virtual int send(
 			void *data,int len);
 
 	private:
-		concurrency::concurrent_vector<session::conn*> conns;
-		concurrency::concurrent_vector<group*> children;
+		concurrency::concurrent_vector<intf::sendable*> children;
 	};
 };

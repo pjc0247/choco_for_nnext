@@ -11,24 +11,27 @@ namespace choco{
 	group::~group(){
 	}
 
-	void group::add_child(
-		group *g){
+	void group::join(
+		intf::sendable *s){
 
-		children.push_back(g);
+		children.push_back(s);
 	}
-	void group::remove_child(
-		group *g){
+	void group::remove(
+		intf::sendable *s){
 
-		concurrency::concurrent_queue<int> q;
-
-		concurrency::concurrent_unordered_set<int> w;
-		
-		
-	
+		for(auto &child : children){
+			if(child == s)
+				child = nullptr;
+		}
 	}
 
 	int group::send(
 		void *data,int len){
+
+		for(auto &child : children){
+			if(child != nullptr)
+				child->send(data, len);
+		}
 
 		return 0;
 	}
