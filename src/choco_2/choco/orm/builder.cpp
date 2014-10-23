@@ -143,7 +143,8 @@ namespace orm{
 			build_from() + " " +
 			build_conditions() + " " +
 			build_order_by() + " " +
-			build_limit();
+			build_limit() + " " +
+			build_offset();
 
 		return query;
 	}
