@@ -115,7 +115,7 @@ namespace orm{
 		string query = "LIMIT ";
 		char buf[12];
 
-		if( n_limit == 0 )
+		if( n_limit == -1 )
 			return "";
 
 		sprintf( buf, "%d", n_limit );
@@ -127,7 +127,7 @@ namespace orm{
 		string query = "OFFSET ";
 		char buf[12];
 
-		if( n_offset == 0 )
+		if( n_offset == -1 )
 			return "";
 
 		sprintf( buf, "%d", n_offset );

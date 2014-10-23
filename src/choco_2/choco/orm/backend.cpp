@@ -8,7 +8,7 @@ namespace choco{
 namespace orm{
 
 	query::query() :
-		n_limit(0),
+		n_limit(-1), n_offset(-1),
 		query_type(0),
 		currupted(false){
 	}
