@@ -9,6 +9,7 @@ namespace orm{
 
 	query::query() :
 		n_limit(-1), n_offset(-1),
+		b_distinct(false),
 		query_type(0),
 		currupted(false){
 	}
@@ -33,6 +34,9 @@ namespace orm{
 	}
 	void query::set_offset(int _offset){
 		n_offset = _offset;
+	}
+	void query::set_distinct(bool _distinct){
+		b_distinct = _distinct;
 	}
 
 	void query::add_result_column(const string &col){

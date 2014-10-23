@@ -138,6 +138,10 @@ namespace orm{
 
 	string query::build_select(){
 		string query = "SELECT ";
+
+		if( b_distinct )
+			query += "DISTINCT ";
+
 		query +=
 			build_result_columns() + " " +
 			build_from() + " " +

@@ -65,6 +65,8 @@ namespace orm{
 		query *select(const std::string &col);
 		query *select(int count, ...);
 
+		query *distinct();
+
 		query *limit(int limit);
 		query *offset(int offset);
 
@@ -123,6 +125,7 @@ namespace orm{
 		void set_table(const std::string &table);
 		void set_limit(int limit);
 		void set_offset(int offset);
+		void set_distinct(bool distinct);
 
 		void add_result_column(const std::string &col);
 		void add_condition(
@@ -192,6 +195,7 @@ namespace orm{
 
 		int n_limit;
 		int n_offset;
+		bool b_distinct;
 		bool currupted;
 
 		MYSQL *mysql;

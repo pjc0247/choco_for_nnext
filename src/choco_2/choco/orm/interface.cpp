@@ -85,6 +85,12 @@ namespace orm{
 		return this;
 	}
 
+	query *query::distinct(){
+		set_distinct( true );
+
+		return this;
+	}
+
 	query *query::limit(int limit){
 		set_limit( limit );
 
