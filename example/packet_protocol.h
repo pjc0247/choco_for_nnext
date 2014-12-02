@@ -2,14 +2,14 @@
 
 #include "choco/choco.h"
 
-#define MAX_user_id 32
-#define MAX_user_pw 32
-#define MAX_nickname 16
-
 enum packet_id{
     id_login_request,
     id_login_response
 };
+
+LENGTH(user_id, 32);
+LENGTH(user_pw, 32);
+LENGTH(nickname, 16);
 
 PACKET(login_request)
     STRING(user_id);
